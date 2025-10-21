@@ -1,2 +1,4 @@
 Django>=4.2
 Pillow>=9.0
+dj-database-url>=2.0
+gunicorn>=21.0

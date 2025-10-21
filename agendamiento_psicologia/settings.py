@@ -61,3 +61,17 @@ MEDIA_ROOT = BASE_DIR / 'media'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 AUTH_USER_MODEL = 'usuarios.Usuario'
+
+
+# --- Configuración para Render ---
+import os
+import dj_database_url
+
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+    DEBUG = False
+    DATABASES = {
+        'default': dj_database_url.config(conn_max_age=600)
+    }
