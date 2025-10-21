@@ -1,5 +1,7 @@
 from pathlib import Path
 import os
+import dj_database_url
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'clave-secreta-django'
@@ -65,7 +67,6 @@ AUTH_USER_MODEL = 'usuarios.Usuario'
 
 # --- Configuración para Render ---
 import os
-import dj_database_url
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 
