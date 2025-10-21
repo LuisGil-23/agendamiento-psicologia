@@ -76,3 +76,12 @@ if RENDER_EXTERNAL_HOSTNAME:
     DATABASES = {
         'default': dj_database_url.config(conn_max_age=600)
     }
+
+
+import os
+from django.contrib.auth import get_user_model
+
+if os.environ.get('RUN_MAIN') == 'true':  # Evita que se ejecute dos veces
+    User = get_user_model()
+    if not User.objects.filter(username='admin').exists():
+        User.objects.create_superuser('admin', 'admin@example.com', 'admin123')
