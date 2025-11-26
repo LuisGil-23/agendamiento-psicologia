@@ -24,6 +24,8 @@ INSTALLED_APPS = [
     'citas',
     # Librerías externas
     'rest_framework',
+    #UI Frontend
+    'ui_frontend',
 ]
 
 # Middlewares
